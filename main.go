@@ -6,9 +6,11 @@ import (
 )
 
 func main() {
+	core := framework.NewCore()
+	registerRoute(core)
 	server := &http.Server{
-		Handler: framework.NewCore(),
-		Addr:    "localhost:8080",
+		Handler: core,
+		Addr:    "localhost:8888",
 	}
 	server.ListenAndServe()
 }
